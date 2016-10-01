@@ -1,3 +1,5 @@
+var bourbon = require('node-bourbon').includePaths;
+
 module.exports = {
   entry: './src/js/index.js',
   output: {
@@ -19,6 +21,10 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass?includePaths[]=' + bourbon,
       }
     ]
   }
