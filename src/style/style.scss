@@ -10,6 +10,29 @@ $color-3: #484848;
 $color-4: #e9e9e9;
 
 $header-height: 75px;
+$sidebar-width: 250px;
+
+@include keyframes(sidebarSlideOut) {
+  0% {
+    @include transform(translate(0px, 0px));
+    left: 0px;
+  }
+  100% {
+    @include transform(translate(-$sidebar-width, 0px));
+    left: -$sidebar-width;
+  }
+}
+
+@include keyframes(sidebarSlideIn) {
+  0% {
+    @include transform(translate(-$sidebar-width, 0px));
+    left: -$sidebar-width;
+  }
+  100% {
+    @include transform(translate(0px, 0px));
+    left: 0px;
+  }
+}
 
 html, body,
 div, span,
@@ -23,11 +46,18 @@ a, p {
 #sidebar {
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 2;
-  width: 250px;
+  width: $sidebar-width;
   height: 100%;
   background-color: $color-4;
+  &.open {
+    @include animation(sidebarSlideIn 0.5s ease-in);
+    left: 0;
+  }
+  &.closed {
+    @include animation(sidebarSlideOut 0.5s ease-out);
+    left: -$sidebar-width;
+  }
   #menu {
     list-style: none;
     .menu-item {
@@ -44,6 +74,28 @@ a, p {
             color: $color-1;
           }
         }
+      }
+    }
+  }
+  #dismisser {
+    position: absolute;
+    top: 0;
+    left: $sidebar-width;
+    width: 50px;
+    height: 25px;
+    background-color: $color-4;
+    padding: 2px;
+    button {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      background-color: $color-4;
+      color: $color-3;
+      &:hover {
+        background-color: $color-3;
+        color: $color-4;
+        cursor: pointer;
       }
     }
   }
