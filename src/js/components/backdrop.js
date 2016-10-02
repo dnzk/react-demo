@@ -6,7 +6,7 @@ export default class Backdrop extends React.Component {
   constructor() {
     super();
     this.state = {
-      backdropState: 'show'
+      backdropState: 'hide'
     };
   }
   toggle() {
