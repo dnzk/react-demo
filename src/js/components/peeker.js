@@ -1,11 +1,16 @@
 import React from 'react';
 
-export default (props) => {
-  return (
-    <div className="peeker-container">
-      <div className="peeker">
-        <span className="peeker-text">{ props.text }</span>
+export default class Peeker extends React.Component {
+  seeDetails() {
+    console.log(this.props.item);
+  }
+  render() {
+    return (
+      <div className="peeker-container">
+        <div className="peeker" onClick={this.seeDetails.bind(this)}>
+          <span className="peeker-text">{ this.props.item.name }</span>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }

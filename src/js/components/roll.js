@@ -4,7 +4,7 @@ import Peeker from './peeker';
 class Roll extends React.Component {
   render() {
     let list = this.props.list.map((item, key) => {
-      return <Peeker key={key} text={item.name} />
+      return <Peeker key={key} item={item} />
     });
 
     return (
