@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './header';
 import Roll from './roll';
 import Sidebar from './sidebar';
+import Backdrop from './backdrop';
 
 class App extends React.Component {
   constructor() {
@@ -30,6 +31,7 @@ class App extends React.Component {
         <Sidebar />
         <Header headerText="SWAPI" />
         { this.props.children }
+        <Backdrop />
       </div>
     );
   }

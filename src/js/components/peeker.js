@@ -1,8 +1,11 @@
 import React from 'react';
+import { fabricate } from 'crossvent';
+import { setBackdropDetails } from '../store/app-store';
 
 export default class Peeker extends React.Component {
   seeDetails() {
-    console.log(this.props.item);
+    setBackdropDetails(this.props.item);
+    fabricate(document.getElementById('backdrop'), 'toggle');
   }
   render() {
     return (
