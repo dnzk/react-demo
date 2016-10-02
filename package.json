@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack -p",
-    "deploy": "./node_modules/.bin/gh-pages -d dist -b gh-pages",
+    "deploy": "npm run build && ./node_modules/.bin/gh-pages -d dist -b gh-pages",
     "start": "./node_modules/.bin/webpack-dev-server"
   },
   "repository": {
