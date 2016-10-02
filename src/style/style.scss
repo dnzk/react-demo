@@ -126,6 +126,7 @@ a, p {
     @include justify-content(flex-start);
     .peeker-container {
       @include flex-grow(1);
+      width: 20%;
       padding: 5px;
       .peeker {
         @include display(flex);
