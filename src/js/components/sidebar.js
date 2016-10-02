@@ -5,7 +5,9 @@ const Dismisser = (props) => {
   return (
     <div id="dismisser">
       <button type="buton" onClick={props.toggle}>
-        X
+        {
+          props.symbol === 'closed' ? '>' : 'X'
+        }
       </button>
     </div>
   )
@@ -44,7 +46,7 @@ class Sidebar extends React.Component {
         <ul id="menu">
           {menu}
         </ul>
-        <Dismisser toggle={this.toggle.bind(this)} />
+        <Dismisser toggle={this.toggle.bind(this)} symbol={this.state.toggler} />
       </div>
     )
   }
