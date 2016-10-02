@@ -14,7 +14,7 @@ export default class People extends React.Component {
   }
   componentDidMount() {
     for (let i = 1; i < 5; i += 1) {
-      axios.get(`http://swapi.co/api/people/?page=${i}`)
+      axios.get(`https://swapi.co/api/people/?page=${i}`)
         .then(res => {
           this.setState({
             people: this.state.people.concat(res.data.results)

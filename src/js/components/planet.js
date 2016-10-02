@@ -13,7 +13,7 @@ export default class Planet extends React.Component {
     return <Roll list={this.state.planets} />
   }
   componentDidMount() {
-    axios.get('http://swapi.co/api/planets/')
+    axios.get('https://swapi.co/api/planets/')
       .then(res => {
         this.setState({
           planets: res.data.results
